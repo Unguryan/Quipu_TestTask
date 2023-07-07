@@ -11,7 +11,7 @@ namespace Quipu.Core.Services
         public Deposit Calculate(InputData inputData)
         {
             var accomulatedList = new List<MonthPayment>();
-            var percentagePerMonth = inputData.PercentagePerYear / (inputData.MonthCount * 100);
+            var percentagePerMonth = inputData.PercentagePerYear / (12 * 100);
             var temp = inputData.StartAmount;
             var accomulated = 0.0d;
 
@@ -20,7 +20,11 @@ namespace Quipu.Core.Services
                 var monthAccomulated = Math.Round(temp * percentagePerMonth, 2);
 
                 accomulated += monthAccomulated;
-                temp = Math.Round(temp + monthAccomulated, 2);
+
+                if(inputData.Type == PayoutType.Capitalization)
+                {
+                    temp = Math.Round(temp + monthAccomulated, 2);
+                }
 
                 accomulatedList.Add(new MonthPayment(i + 1, temp, monthAccomulated));
             }

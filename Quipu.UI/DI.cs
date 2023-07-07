@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Quipu.UI.ViewModels;
 using Quipu.UI.Views;
 
 namespace Quipu.UI
