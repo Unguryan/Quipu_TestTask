@@ -1,33 +1,22 @@
-﻿using System.Collections.Generic;
+﻿using Quipu.Core.Models.Algorithm;
+using System.Collections.Generic;
 
 namespace Quipu.Core.Models
 {
     public class Deposit
     {
-        public Deposit(double startAmount,
-                       double percentagePerYear,
-                       PayoutType type,
-                       int monthCount,
+        public Deposit(InputData inputData,
                        double accumulatedAmount,
                        double endAmount,
                        IEnumerable<MonthPayment> monthPayments)
         {
-            StartAmount = startAmount;
-            PercentagePerYear = percentagePerYear;
-            Type = type;
-            MonthCount = monthCount;
+            InputData = inputData;
             AccumulatedAmount = accumulatedAmount;
             EndAmount = endAmount;
             MonthPayments = monthPayments;
         }
 
-        public double StartAmount { get; }
-
-        public double PercentagePerYear { get; }
-
-        public PayoutType Type { get; }
-
-        public int MonthCount { get; }
+        public InputData InputData { get; }
 
         public double AccumulatedAmount { get; }
 
