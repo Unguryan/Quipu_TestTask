@@ -1,17 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Quipu.UI.Views;
 using System.Windows;
 
 namespace Quipu.UI
 {
-    /// <summary>
-    /// Логика взаимодействия для App.xaml
-    /// </summary>
     public partial class App : Application
     {
+        readonly MainWindow _mainWindow;
+
+        public App(MainWindow mainWindow)
+        {
+            _mainWindow = mainWindow;
+        }
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            _mainWindow.Show(); 
+            base.OnStartup(e);
+        }
     }
 }
