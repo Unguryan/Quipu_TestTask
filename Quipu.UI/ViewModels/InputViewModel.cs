@@ -35,6 +35,11 @@ namespace Quipu.UI.ViewModels
             ShowResultsCommand = new RelayCommand((_) => ShowResults());
             ClearCommand = new RelayCommand((_) => Clear());
             Types = Enum.GetNames(typeof(PayoutType));
+
+            //Just for testing
+            StartAmount = 1000;
+            PercentagePerYear = 3;
+            MonthCount = 24;
         }
         
 
